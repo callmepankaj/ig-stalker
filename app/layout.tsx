@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import { CSPostHogProvider } from "./providers";
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({
         <CSPostHogProvider>
           <Navbar />
           {children}
+          <Analytics />
           <Footer />
           <CookieConsent />
         </CSPostHogProvider>
