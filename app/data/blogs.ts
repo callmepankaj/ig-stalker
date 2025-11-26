@@ -78,11 +78,11 @@ const BLOG_CONFIGS = [
   {
     id: '1',
     slug: 'how-to-view-instagram-stories-anonymously',
-    title: 'How to View Instagram Stories Anonymously in 2024',
+    title: 'How to View Instagram Stories Anonymously in 2025',
     excerpt: 'Discover the best methods to watch Instagram Stories without the user knowing. Learn about airplane mode, third-party apps, and online viewers.',
-    date: '2024-03-15',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    coverImage: 'https://unsplash.com/photos/person-holding-black-samsung-android-smartphone-KWZa42a1kds?w=800&q=80',
     points: ['Using Web-Based Viewers', 'The Airplane Mode Trick', 'Creating a Finsta Account', 'Respecting User Privacy']
   },
   {
@@ -90,19 +90,19 @@ const BLOG_CONFIGS = [
     slug: 'top-10-instagram-privacy-tips',
     title: 'Top 10 Instagram Privacy Tips You Need to Know',
     excerpt: 'Protect your personal information on Instagram with these essential privacy settings and habits.',
-    date: '2024-03-14',
+    date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+    coverImage: 'https://unsplash.com/photos/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c-ah-HeguOe9k',
     points: ['Setting Account to Private', 'Managing Story Settings', 'Enabling Two-Factor Authentication', 'Auditing Third-Party Apps']
   },
   {
     id: '3',
-    slug: 'instagram-algorithm-explained-2024',
-    title: 'The Instagram Algorithm Explained: How to Grow in 2024',
+    slug: 'instagram-algorithm-explained-2025',
+    title: 'The Instagram Algorithm Explained: How to Grow in 2025',
     excerpt: 'Unlock the secrets of the Instagram algorithm. Learn how Reels, Stories, and Feed posts are ranked.',
-    date: '2024-03-13',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://unsplash.com/photos/black-and-purple-computer-keyboard-fmqhTMu4IVU',
     points: ['Prioritizing Reels Content', 'Driving Engagement via Saves', 'Consistency in Posting', 'Utilizing Trending Audio']
   },
   {
@@ -110,9 +110,9 @@ const BLOG_CONFIGS = [
     slug: 'how-to-download-instagram-reels',
     title: 'How to Download Instagram Reels to Your Phone',
     excerpt: 'A step-by-step guide on saving Instagram Reels for offline viewing using free tools.',
-    date: '2024-03-12',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-table-next-to-a-potted-plant-k8plFiceP0I',
     points: ['Using Online Downloader Tools', 'Screen Recording Methods', 'Saving to Collection', 'Copyright Considerations']
   },
   {
@@ -120,9 +120,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-vs-tiktok-marketing',
     title: 'Instagram vs TikTok: Which is Better for Marketing?',
     excerpt: 'Comparing the two giants of social media to help you decide where to focus your marketing efforts.',
-    date: '2024-03-11',
+    date: '2025-11-26',
     category: 'Marketing',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=5',
     points: ['Audience Demographics', 'Content Lifespan', 'Ad Platform Maturity', 'Conversion Rates']
   },
   {
@@ -130,9 +130,9 @@ const BLOG_CONFIGS = [
     slug: 'understanding-instagram-analytics',
     title: 'Understanding Instagram Analytics for Beginners',
     excerpt: 'Learn how to read your Insights to understand your audience and improve your content strategy.',
-    date: '2024-03-10',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=6',
     points: ['Reach vs Impressions', 'Engagement Rate Calculation', 'Follower Demographics', 'Best Time to Post']
   },
   {
@@ -140,9 +140,9 @@ const BLOG_CONFIGS = [
     slug: 'safe-instagram-browsing',
     title: 'Safe Instagram Browsing: Avoiding Scams and Phishing',
     excerpt: 'Stay safe on the platform by recognizing common scams and malicious links.',
-    date: '2024-03-09',
+    date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=7',
     points: ['Identifying Phishing DMs', 'Checking Link Authenticity', 'Avoiding "Get Rich Quick" Scams', 'Reporting Suspicious Activity']
   },
   {
@@ -150,9 +150,9 @@ const BLOG_CONFIGS = [
     slug: 'best-time-to-post-on-instagram',
     title: 'The Best Time to Post on Instagram in 2024',
     excerpt: 'Maximize your engagement by posting when your audience is most active.',
-    date: '2024-03-08',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1504384308090-c54be3855833?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=8',
     points: ['Analyzing Your Specific Audience', 'Global vs Local Time Zones', 'Weekday vs Weekend Trends', 'Testing and Iterating']
   },
   {
@@ -160,9 +160,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-shadowban-explained',
     title: 'Instagram Shadowban: What It Is and How to Fix It',
     excerpt: 'Are your posts not showing up? You might be shadowbanned. Here is how to recover.',
-    date: '2024-03-07',
+    date: '2025-11-26',
     category: 'Troubleshooting',
-    coverImage: 'https://images.unsplash.com/photo-1623282033815-40b05d96c903?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=9',
     points: ['Recognizing the Signs', 'Removing Banned Hashtags', 'Taking a Break from Activity', 'Contacting Support']
   },
   {
@@ -170,9 +170,9 @@ const BLOG_CONFIGS = [
     slug: 'creating-aesthetic-instagram-feed',
     title: 'How to Create an Aesthetic Instagram Feed',
     excerpt: 'Tips and tricks for planning a visually cohesive and attractive profile grid.',
-    date: '2024-03-06',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=10',
     points: ['Choosing a Color Palette', 'Using Consistent Filters', 'Planning Grid Layouts', 'Balancing Content Types']
   },
   {
@@ -180,9 +180,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-bio-ideas',
     title: '100+ Instagram Bio Ideas to Stand Out',
     excerpt: 'Copy and paste these creative bio ideas to make a great first impression.',
-    date: '2024-03-05',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=11',
     points: ['Using Keywords for SEO', 'Adding a Call to Action', 'Using Emojis Effectively', 'Link in Bio Strategy']
   },
   {
@@ -190,9 +190,9 @@ const BLOG_CONFIGS = [
     slug: 'how-to-get-verified-on-instagram',
     title: 'How to Get Verified on Instagram (Blue Tick Guide)',
     excerpt: 'Learn the requirements and process for applying for Instagram verification.',
-    date: '2024-03-04',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=12',
     points: ['Meta Verified Subscription', 'Notability Requirements', 'Press Coverage', 'Completing Your Profile']
   },
   {
@@ -200,9 +200,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-stories-hacks',
     title: '15 Instagram Stories Hacks You Didn\'t Know',
     excerpt: 'Level up your stories with these hidden features and creative tricks.',
-    date: '2024-03-03',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=13',
     points: ['Hidden Color Palettes', 'Pasting Photos from Camera Roll', 'Creating Solid Backgrounds', 'Custom Fonts and Effects']
   },
   {
@@ -210,9 +210,9 @@ const BLOG_CONFIGS = [
     slug: 'repost-instagram-content-legally',
     title: 'How to Repost Instagram Content Legally',
     excerpt: 'Avoid copyright issues by following these best practices for reposting user-generated content.',
-    date: '2024-03-02',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=14',
     points: ['Asking for Permission', 'Giving Proper Credit', 'Using Repost Apps', 'Understanding Fair Use']
   },
   {
@@ -220,9 +220,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-seo-strategy',
     title: 'Instagram SEO: How to Optimize Your Profile for Search',
     excerpt: 'Get discovered by more people by optimizing your username, bio, and captions with keywords.',
-    date: '2024-03-01',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=15',
     points: ['Optimizing Your Name Field', 'Keyword-Rich Captions', 'Alt Text for Images', 'Hashtag SEO']
   },
   {
@@ -230,9 +230,9 @@ const BLOG_CONFIGS = [
     slug: 'delete-instagram-account',
     title: 'How to Delete or Deactivate Your Instagram Account',
     excerpt: 'Taking a break? Here is how to temporarily disable or permanently delete your profile.',
-    date: '2024-02-29',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=16',
     points: ['Temporary Deactivation', 'Permanent Deletion', 'Downloading Your Data', 'Reactivating Your Account']
   },
   {
@@ -240,9 +240,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-music-sticker',
     title: 'How to Use the Instagram Music Sticker Effectively',
     excerpt: 'Add soundtracks to your stories to increase engagement and set the mood.',
-    date: '2024-02-28',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=17',
     points: ['Finding Trending Audio', 'Lyrics Integration', 'Adjusting Clip Duration', 'Hidden Music Features']
   },
   {
@@ -250,9 +250,9 @@ const BLOG_CONFIGS = [
     slug: 'fix-instagram-crashing',
     title: 'Instagram Keeps Crashing? 7 Ways to Fix It',
     excerpt: 'Troubleshoot common app issues with these simple solutions.',
-    date: '2024-02-27',
+    date: '2025-11-26',
     category: 'Troubleshooting',
-    coverImage: 'https://images.unsplash.com/photo-1623282033815-40b05d96c903?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=18',
     points: ['Clearing App Cache', 'Updating the App', 'Reinstalling Instagram', 'Checking Device Storage']
   },
   {
@@ -260,9 +260,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-influencer-marketing',
     title: 'The State of Instagram Influencer Marketing in 2024',
     excerpt: 'Trends and predictions for brands and creators in the influencer space.',
-    date: '2024-02-26',
+    date: '2025-11-26',
     category: 'Marketing',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=19',
     points: ['Rise of Micro-Influencers', 'Authenticity vs Polish', 'Long-Term Partnerships', 'Video Content Dominance']
   },
   {
@@ -270,9 +270,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-collab-posts',
     title: 'How to Use Instagram Collab Posts to Double Your Reach',
     excerpt: 'Partner with other creators to show posts on both profiles simultaneously.',
-    date: '2024-02-25',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=20',
     points: ['Inviting Collaborators', 'Strategic Partnerships', 'Boosting Engagement', 'Cross-Promotion Benefits']
   },
   {
@@ -280,9 +280,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-notes-feature',
     title: 'What are Instagram Notes and How to Use Them',
     excerpt: 'Everything you need to know about the new status update feature in DMs.',
-    date: '2024-02-24',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=21',
     points: ['Creating Engaging Notes', 'Who Can See Your Notes', 'Using Notes for Business', 'Notes vs Stories']
   },
   {
@@ -290,9 +290,9 @@ const BLOG_CONFIGS = [
     slug: 'recover-hacked-instagram',
     title: 'How to Recover a Hacked Instagram Account',
     excerpt: 'Immediate steps to take if you lose access to your profile.',
-    date: '2024-02-23',
+    date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=22',
     points: ['Requesting Login Link', 'Verifying Identity with Video', 'Revoking Suspicious Access', 'Securing Email Account']
   },
   {
@@ -300,9 +300,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-live-tips',
     title: 'Mastering Instagram Live: Tips for a Successful Broadcast',
     excerpt: 'Engage your audience in real-time with these live streaming best practices.',
-    date: '2024-02-22',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=23',
     points: ['Pre-Live Promotion', 'Engaging with Comments', 'Using Live Rooms', 'Saving and Repurposing']
   },
   {
@@ -310,9 +310,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-shopping-guide',
     title: 'Setting Up Instagram Shopping for Your Business',
     excerpt: 'Turn your profile into a storefront and sell products directly through posts.',
-    date: '2024-02-21',
+    date: '2025-11-26',
     category: 'Business',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=24',
     points: ['Commerce Manager Setup', 'Product Catalog Sync', 'Tagging Products', 'Shopping Insights']
   },
   {
@@ -320,9 +320,9 @@ const BLOG_CONFIGS = [
     slug: 'hide-likes-instagram',
     title: 'How (and Why) to Hide Likes on Instagram',
     excerpt: 'Take the pressure off by hiding like counts on your posts and others.',
-    date: '2024-02-20',
+    date: '2025-11-26',
     category: 'Mental Health',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=25',
     points: ['Mental Health Benefits', 'Focusing on Content Quality', 'How to Toggle Settings', 'Impact on Engagement']
   },
   {
@@ -330,9 +330,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-threads-app',
     title: 'Instagram Threads: Is It Still Relevant?',
     excerpt: 'A look at Meta\'s text-based app and its integration with Instagram.',
-    date: '2024-02-19',
+    date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=26',
     points: ['Threads vs Twitter (X)', 'Integration Features', 'Growth Trajectory', 'Content Strategy for Threads']
   },
   {
@@ -340,9 +340,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-caption-generator',
     title: 'Best AI Tools to Generate Instagram Captions',
     excerpt: 'Save time and boost engagement with these AI-powered writing assistants.',
-    date: '2024-02-18',
+    date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=27',
     points: ['ChatGPT Prompts', 'Copy.ai Features', 'Jasper AI for Social', 'Maintaining Brand Voice']
   },
   {
@@ -350,9 +350,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-grid-layouts',
     title: '5 Creative Instagram Grid Layouts to Try',
     excerpt: 'Inspire your followers with puzzle grids, checkerboards, and row-by-row themes.',
-    date: '2024-02-17',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=28',
     points: ['Checkerboard Pattern', 'Row-by-Row Theme', 'Puzzle Grid Layout', 'Color Blocking']
   },
   {
@@ -360,9 +360,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-automation-tools',
     title: 'Safe Instagram Automation Tools for 2024',
     excerpt: 'Automate scheduling and reporting without risking your account safety.',
-    date: '2024-02-16',
+    date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=29',
     points: ['Buffer for Scheduling', 'Later for Visual Planning', 'ManyChat for DMs', 'Avoiding Bot Actions']
   },
   {
@@ -370,9 +370,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-hashtags-guide',
     title: 'The Ultimate Guide to Instagram Hashtags',
     excerpt: 'How many to use, where to put them, and how to find the right ones.',
-    date: '2024-02-15',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=30',
     points: ['Hashtag Ladders', 'Niche vs Broad Tags', 'Banned Hashtags', 'Tracking Performance']
   },
   {
@@ -380,9 +380,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-broadcast-channels',
     title: 'How to Use Instagram Broadcast Channels',
     excerpt: 'Connect deeply with your super-fans using this one-to-many messaging tool.',
-    date: '2024-02-14',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=31',
     points: ['Starting a Channel', 'Content Ideas for Channels', 'Engaging Subscribers', 'Monetization Potential']
   },
   {
@@ -390,9 +390,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-gift-monetization',
     title: 'Making Money with Instagram Gifts',
     excerpt: 'How creators can earn revenue directly from their Reels audience.',
-    date: '2024-02-13',
+    date: '2025-11-26',
     category: 'Monetization',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=32',
     points: ['Eligibility Requirements', 'Setting Up Payouts', 'Encouraging Gifts', 'Understanding Revenue Share']
   },
   {
@@ -400,9 +400,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-quiet-mode',
     title: 'How to Enable Quiet Mode on Instagram',
     excerpt: 'Silence notifications and set an auto-reply to focus on your work or sleep.',
-    date: '2024-02-12',
+    date: '2025-11-26',
     category: 'Mental Health',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=33',
     points: ['Activating Quiet Mode', 'Customizing Schedule', 'Auto-Reply Features', 'Digital Wellbeing']
   },
   {
@@ -410,9 +410,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-profile-picture-size',
     title: 'Perfect Instagram Profile Picture Size & Dimensions',
     excerpt: 'Ensure your avatar looks crisp and clear on all devices.',
-    date: '2024-02-11',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=34',
     points: ['Ideal Dimensions (320x320)', 'Centering Your Subject', 'Brand Consistency', 'File Formats']
   },
   {
@@ -420,9 +420,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-video-formats',
     title: 'Best Video Formats and Specs for Instagram',
     excerpt: 'A technical guide to Reels, Stories, and Feed video requirements.',
-    date: '2024-02-10',
+    date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=35',
     points: ['Aspect Ratios (9:16)', 'Resolution Settings', 'Frame Rates', 'Codec Recommendations']
   },
   {
@@ -430,9 +430,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-explore-page',
     title: 'How to Get on the Instagram Explore Page',
     excerpt: 'Strategies to get your content featured and go viral.',
-    date: '2024-02-09',
+    date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=36',
     points: ['High Engagement Velocity', 'Relevance to Niche', 'Video Content Priority', 'Interacting with Similar Accounts']
   },
   {
@@ -440,9 +440,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-story-highlights-icons',
     title: 'Free Instagram Story Highlight Icons',
     excerpt: 'Where to find and how to create custom covers for your highlights.',
-    date: '2024-02-08',
+    date: '2025-11-26',
     category: 'Resources',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=37',
     points: ['Designing in Canva', 'Icon Resources', 'Color Psychology', 'Uploading Covers']
   },
   {
@@ -450,9 +450,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-bio-link-tools',
     title: 'Best Link in Bio Tools for Instagram',
     excerpt: 'Compare Linktree, Beacons, and others to drive traffic from your profile.',
-    date: '2024-02-07',
+    date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=38',
     points: ['Linktree Features', 'Beacons for Creators', 'Stan Store for Sales', 'Analytics Comparison']
   },
   {
@@ -460,9 +460,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-alt-text',
     title: 'Why You Should Use Instagram Alt Text',
     excerpt: 'Improve accessibility and SEO by adding descriptions to your images.',
-    date: '2024-02-06',
+    date: '2025-11-26',
     category: 'SEO',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=39',
     points: ['Accessibility Benefits', 'SEO Ranking Factors', 'Writing Good Alt Text', 'Editing Existing Posts']
   },
   {
@@ -470,9 +470,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-pinned-posts',
     title: 'How to Pin Posts on Your Instagram Profile',
     excerpt: 'Showcase your best content at the top of your grid.',
-    date: '2024-02-05',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1623282033815-40b05d96c903?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=40',
     points: ['Selecting Top Content', 'Pinning Strategy', 'Updating Pins', 'Impact on First Impressions']
   },
   {
@@ -480,9 +480,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-professional-dashboard',
     title: 'Navigating the Instagram Professional Dashboard',
     excerpt: 'A guide to the tools and resources available for Creator and Business accounts.',
-    date: '2024-02-04',
+    date: '2025-11-26',
     category: 'Business',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=41',
     points: ['Account Insights', 'Ad Tools', 'Branded Content Status', 'Educational Resources']
   },
   {
@@ -490,9 +490,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-guides-feature',
     title: 'Are Instagram Guides Going Away?',
     excerpt: 'Updates on the curated content feature and alternatives.',
-    date: '2024-02-03',
+    date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=42',
     points: ['Feature Deprecation', 'Using Carousels Instead', 'Collections for Saving', 'Adapting Content Strategy']
   },
   {
@@ -500,9 +500,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-close-friends',
     title: 'Creative Ways to Use the Close Friends Feature',
     excerpt: 'Offer exclusive content or behind-the-scenes access to a VIP list.',
-    date: '2024-02-02',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=43',
     points: ['VIP Content Strategy', 'Testing New Ideas', 'Personal Updates', 'Managing Your List']
   },
   {
@@ -510,9 +510,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-archive-feature',
     title: 'How to Access and Manage Your Instagram Archive',
     excerpt: 'View your old stories and posts without them being public.',
-    date: '2024-02-01',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=44',
     points: ['Stories Archive', 'Posts Archive', 'Resharing Memories', 'Deleting Permanently']
   },
   {
@@ -520,9 +520,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-dark-mode',
     title: 'How to Enable Dark Mode on Instagram',
     excerpt: 'Save battery and reduce eye strain with this display setting.',
-    date: '2024-01-31',
+    date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=45',
     points: ['iOS Settings', 'Android Settings', 'Battery Life Benefits', 'Visual Comfort']
   },
   {
@@ -530,9 +530,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-data-download',
     title: 'How to Download All Your Instagram Data',
     excerpt: 'Back up your photos, messages, and comments for safekeeping.',
-    date: '2024-01-30',
+    date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=46',
     points: ['Requesting Data Download', 'Understanding HTML/JSON', 'Backing Up Media', 'Data Portability']
   },
   {
@@ -540,9 +540,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-branded-content',
     title: 'Instagram Branded Content Tools for Creators',
     excerpt: 'How to disclose paid partnerships and work with brands.',
-    date: '2024-01-29',
+    date: '2025-11-26',
     category: 'Monetization',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=47',
     points: ['Paid Partnership Label', 'Approving Brand Partners', 'FTC Guidelines', 'Monetization Policies']
   },
   {
@@ -550,9 +550,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-remix-reels',
     title: 'How to Remix Reels on Instagram',
     excerpt: 'Create reaction videos and collaborations with the Remix feature.',
-    date: '2024-01-28',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=48',
     points: ['Enabling Remix', 'Recording Reactions', 'Layout Options', 'Creative Use Cases']
   },
   {
@@ -560,9 +560,9 @@ const BLOG_CONFIGS = [
     slug: 'instagram-avatar',
     title: 'Creating and Using Your Instagram Avatar',
     excerpt: 'Express yourself with a personalized digital character.',
-    date: '2024-01-27',
+    date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=49',
     points: ['Customizing Your Avatar', 'Using Avatars in Stories', 'Avatar Stickers', 'Meta Integration']
   },
   {
@@ -570,9 +570,9 @@ const BLOG_CONFIGS = [
     slug: 'future-of-instagram',
     title: 'The Future of Instagram: Predictions for 2025',
     excerpt: 'What is next for the platform? AI, VR, and more.',
-    date: '2024-01-26',
+    date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://images.unsplash.com/photo-1611262588024-d12430b9816a?w=800&q=80',
+    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=50',
     points: ['AI Integration', 'VR/AR Experiences', 'Shopping Evolution', 'Community Focus']
   },
 ];
@@ -584,6 +584,6 @@ export const BLOG_POSTS: BlogPost[] = BLOG_CONFIGS.map(config => ({
   excerpt: config.excerpt,
   date: config.date,
   category: config.category,
-  coverImage: config.coverImage,
+  coverImage: '/blogs.png',
   content: generateContent(config.title, config.category, config.points)
 }));

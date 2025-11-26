@@ -11,46 +11,10 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div>
               <h3 className="font-bold text-lg mb-2">Email</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">support@igstalker.com</p>
+              <p className="text-zinc-600 dark:text-zinc-400">omniquanta@proton.me</p>
             </div>
           </div>
         </div>
-
-        <form className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
-              placeholder="Your Name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
-              placeholder="your@email.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-            <textarea
-              id="message"
-              rows={4}
-              className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
-              placeholder="How can we help?"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-bold hover:opacity-90 transition-opacity"
-          >
-            Send Message
-          </button>
-        </form>
       </div>
     </main>
   );
