@@ -82,7 +82,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Discover the best methods to watch Instagram Stories without the user knowing. Learn about airplane mode, third-party apps, and online viewers.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://unsplash.com/photos/person-holding-black-samsung-android-smartphone-KWZa42a1kds?w=800&q=80',
     points: ['Using Web-Based Viewers', 'The Airplane Mode Trick', 'Creating a Finsta Account', 'Respecting User Privacy']
   },
   {
@@ -92,7 +91,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Protect your personal information on Instagram with these essential privacy settings and habits.',
     date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://unsplash.com/photos/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c-ah-HeguOe9k',
     points: ['Setting Account to Private', 'Managing Story Settings', 'Enabling Two-Factor Authentication', 'Auditing Third-Party Apps']
   },
   {
@@ -102,7 +100,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Unlock the secrets of the Instagram algorithm. Learn how Reels, Stories, and Feed posts are ranked.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://unsplash.com/photos/black-and-purple-computer-keyboard-fmqhTMu4IVU',
     points: ['Prioritizing Reels Content', 'Driving Engagement via Saves', 'Consistency in Posting', 'Utilizing Trending Audio']
   },
   {
@@ -112,7 +109,6 @@ const BLOG_CONFIGS = [
     excerpt: 'A step-by-step guide on saving Instagram Reels for offline viewing using free tools.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-table-next-to-a-potted-plant-k8plFiceP0I',
     points: ['Using Online Downloader Tools', 'Screen Recording Methods', 'Saving to Collection', 'Copyright Considerations']
   },
   {
@@ -122,7 +118,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Comparing the two giants of social media to help you decide where to focus your marketing efforts.',
     date: '2025-11-26',
     category: 'Marketing',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=5',
     points: ['Audience Demographics', 'Content Lifespan', 'Ad Platform Maturity', 'Conversion Rates']
   },
   {
@@ -132,7 +127,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Learn how to read your Insights to understand your audience and improve your content strategy.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=6',
     points: ['Reach vs Impressions', 'Engagement Rate Calculation', 'Follower Demographics', 'Best Time to Post']
   },
   {
@@ -142,7 +136,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Stay safe on the platform by recognizing common scams and malicious links.',
     date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=7',
     points: ['Identifying Phishing DMs', 'Checking Link Authenticity', 'Avoiding "Get Rich Quick" Scams', 'Reporting Suspicious Activity']
   },
   {
@@ -152,7 +145,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Maximize your engagement by posting when your audience is most active.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=8',
     points: ['Analyzing Your Specific Audience', 'Global vs Local Time Zones', 'Weekday vs Weekend Trends', 'Testing and Iterating']
   },
   {
@@ -162,7 +154,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Are your posts not showing up? You might be shadowbanned. Here is how to recover.',
     date: '2025-11-26',
     category: 'Troubleshooting',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=9',
     points: ['Recognizing the Signs', 'Removing Banned Hashtags', 'Taking a Break from Activity', 'Contacting Support']
   },
   {
@@ -172,7 +163,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Tips and tricks for planning a visually cohesive and attractive profile grid.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=10',
     points: ['Choosing a Color Palette', 'Using Consistent Filters', 'Planning Grid Layouts', 'Balancing Content Types']
   },
   {
@@ -182,7 +172,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Copy and paste these creative bio ideas to make a great first impression.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=11',
     points: ['Using Keywords for SEO', 'Adding a Call to Action', 'Using Emojis Effectively', 'Link in Bio Strategy']
   },
   {
@@ -192,7 +181,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Learn the requirements and process for applying for Instagram verification.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=12',
     points: ['Meta Verified Subscription', 'Notability Requirements', 'Press Coverage', 'Completing Your Profile']
   },
   {
@@ -202,7 +190,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Level up your stories with these hidden features and creative tricks.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=13',
     points: ['Hidden Color Palettes', 'Pasting Photos from Camera Roll', 'Creating Solid Backgrounds', 'Custom Fonts and Effects']
   },
   {
@@ -212,7 +199,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Avoid copyright issues by following these best practices for reposting user-generated content.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=14',
     points: ['Asking for Permission', 'Giving Proper Credit', 'Using Repost Apps', 'Understanding Fair Use']
   },
   {
@@ -222,7 +208,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Get discovered by more people by optimizing your username, bio, and captions with keywords.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=15',
     points: ['Optimizing Your Name Field', 'Keyword-Rich Captions', 'Alt Text for Images', 'Hashtag SEO']
   },
   {
@@ -232,7 +217,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Taking a break? Here is how to temporarily disable or permanently delete your profile.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=16',
     points: ['Temporary Deactivation', 'Permanent Deletion', 'Downloading Your Data', 'Reactivating Your Account']
   },
   {
@@ -242,7 +226,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Add soundtracks to your stories to increase engagement and set the mood.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=17',
     points: ['Finding Trending Audio', 'Lyrics Integration', 'Adjusting Clip Duration', 'Hidden Music Features']
   },
   {
@@ -252,7 +235,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Troubleshoot common app issues with these simple solutions.',
     date: '2025-11-26',
     category: 'Troubleshooting',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=18',
     points: ['Clearing App Cache', 'Updating the App', 'Reinstalling Instagram', 'Checking Device Storage']
   },
   {
@@ -262,7 +244,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Trends and predictions for brands and creators in the influencer space.',
     date: '2025-11-26',
     category: 'Marketing',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=19',
     points: ['Rise of Micro-Influencers', 'Authenticity vs Polish', 'Long-Term Partnerships', 'Video Content Dominance']
   },
   {
@@ -272,7 +253,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Partner with other creators to show posts on both profiles simultaneously.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=20',
     points: ['Inviting Collaborators', 'Strategic Partnerships', 'Boosting Engagement', 'Cross-Promotion Benefits']
   },
   {
@@ -282,7 +262,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Everything you need to know about the new status update feature in DMs.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=21',
     points: ['Creating Engaging Notes', 'Who Can See Your Notes', 'Using Notes for Business', 'Notes vs Stories']
   },
   {
@@ -292,7 +271,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Immediate steps to take if you lose access to your profile.',
     date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=22',
     points: ['Requesting Login Link', 'Verifying Identity with Video', 'Revoking Suspicious Access', 'Securing Email Account']
   },
   {
@@ -302,7 +280,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Engage your audience in real-time with these live streaming best practices.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=23',
     points: ['Pre-Live Promotion', 'Engaging with Comments', 'Using Live Rooms', 'Saving and Repurposing']
   },
   {
@@ -312,7 +289,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Turn your profile into a storefront and sell products directly through posts.',
     date: '2025-11-26',
     category: 'Business',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=24',
     points: ['Commerce Manager Setup', 'Product Catalog Sync', 'Tagging Products', 'Shopping Insights']
   },
   {
@@ -322,7 +298,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Take the pressure off by hiding like counts on your posts and others.',
     date: '2025-11-26',
     category: 'Mental Health',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=25',
     points: ['Mental Health Benefits', 'Focusing on Content Quality', 'How to Toggle Settings', 'Impact on Engagement']
   },
   {
@@ -332,7 +307,6 @@ const BLOG_CONFIGS = [
     excerpt: 'A look at Meta\'s text-based app and its integration with Instagram.',
     date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=26',
     points: ['Threads vs Twitter (X)', 'Integration Features', 'Growth Trajectory', 'Content Strategy for Threads']
   },
   {
@@ -342,7 +316,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Save time and boost engagement with these AI-powered writing assistants.',
     date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=27',
     points: ['ChatGPT Prompts', 'Copy.ai Features', 'Jasper AI for Social', 'Maintaining Brand Voice']
   },
   {
@@ -352,7 +325,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Inspire your followers with puzzle grids, checkerboards, and row-by-row themes.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=28',
     points: ['Checkerboard Pattern', 'Row-by-Row Theme', 'Puzzle Grid Layout', 'Color Blocking']
   },
   {
@@ -362,7 +334,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Automate scheduling and reporting without risking your account safety.',
     date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=29',
     points: ['Buffer for Scheduling', 'Later for Visual Planning', 'ManyChat for DMs', 'Avoiding Bot Actions']
   },
   {
@@ -372,7 +343,6 @@ const BLOG_CONFIGS = [
     excerpt: 'How many to use, where to put them, and how to find the right ones.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=30',
     points: ['Hashtag Ladders', 'Niche vs Broad Tags', 'Banned Hashtags', 'Tracking Performance']
   },
   {
@@ -382,7 +352,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Connect deeply with your super-fans using this one-to-many messaging tool.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=31',
     points: ['Starting a Channel', 'Content Ideas for Channels', 'Engaging Subscribers', 'Monetization Potential']
   },
   {
@@ -392,7 +361,6 @@ const BLOG_CONFIGS = [
     excerpt: 'How creators can earn revenue directly from their Reels audience.',
     date: '2025-11-26',
     category: 'Monetization',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=32',
     points: ['Eligibility Requirements', 'Setting Up Payouts', 'Encouraging Gifts', 'Understanding Revenue Share']
   },
   {
@@ -402,7 +370,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Silence notifications and set an auto-reply to focus on your work or sleep.',
     date: '2025-11-26',
     category: 'Mental Health',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=33',
     points: ['Activating Quiet Mode', 'Customizing Schedule', 'Auto-Reply Features', 'Digital Wellbeing']
   },
   {
@@ -412,7 +379,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Ensure your avatar looks crisp and clear on all devices.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=34',
     points: ['Ideal Dimensions (320x320)', 'Centering Your Subject', 'Brand Consistency', 'File Formats']
   },
   {
@@ -422,7 +388,6 @@ const BLOG_CONFIGS = [
     excerpt: 'A technical guide to Reels, Stories, and Feed video requirements.',
     date: '2025-11-26',
     category: 'Guides',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=35',
     points: ['Aspect Ratios (9:16)', 'Resolution Settings', 'Frame Rates', 'Codec Recommendations']
   },
   {
@@ -432,7 +397,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Strategies to get your content featured and go viral.',
     date: '2025-11-26',
     category: 'Growth',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=36',
     points: ['High Engagement Velocity', 'Relevance to Niche', 'Video Content Priority', 'Interacting with Similar Accounts']
   },
   {
@@ -442,7 +406,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Where to find and how to create custom covers for your highlights.',
     date: '2025-11-26',
     category: 'Resources',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=37',
     points: ['Designing in Canva', 'Icon Resources', 'Color Psychology', 'Uploading Covers']
   },
   {
@@ -452,7 +415,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Compare Linktree, Beacons, and others to drive traffic from your profile.',
     date: '2025-11-26',
     category: 'Tools',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=38',
     points: ['Linktree Features', 'Beacons for Creators', 'Stan Store for Sales', 'Analytics Comparison']
   },
   {
@@ -462,7 +424,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Improve accessibility and SEO by adding descriptions to your images.',
     date: '2025-11-26',
     category: 'SEO',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=39',
     points: ['Accessibility Benefits', 'SEO Ranking Factors', 'Writing Good Alt Text', 'Editing Existing Posts']
   },
   {
@@ -472,7 +433,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Showcase your best content at the top of your grid.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=40',
     points: ['Selecting Top Content', 'Pinning Strategy', 'Updating Pins', 'Impact on First Impressions']
   },
   {
@@ -482,7 +442,6 @@ const BLOG_CONFIGS = [
     excerpt: 'A guide to the tools and resources available for Creator and Business accounts.',
     date: '2025-11-26',
     category: 'Business',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=41',
     points: ['Account Insights', 'Ad Tools', 'Branded Content Status', 'Educational Resources']
   },
   {
@@ -492,7 +451,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Updates on the curated content feature and alternatives.',
     date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=42',
     points: ['Feature Deprecation', 'Using Carousels Instead', 'Collections for Saving', 'Adapting Content Strategy']
   },
   {
@@ -502,7 +460,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Offer exclusive content or behind-the-scenes access to a VIP list.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=43',
     points: ['VIP Content Strategy', 'Testing New Ideas', 'Personal Updates', 'Managing Your List']
   },
   {
@@ -512,7 +469,6 @@ const BLOG_CONFIGS = [
     excerpt: 'View your old stories and posts without them being public.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=44',
     points: ['Stories Archive', 'Posts Archive', 'Resharing Memories', 'Deleting Permanently']
   },
   {
@@ -522,7 +478,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Save battery and reduce eye strain with this display setting.',
     date: '2025-11-26',
     category: 'Tips',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=45',
     points: ['iOS Settings', 'Android Settings', 'Battery Life Benefits', 'Visual Comfort']
   },
   {
@@ -532,7 +487,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Back up your photos, messages, and comments for safekeeping.',
     date: '2025-11-26',
     category: 'Privacy',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=46',
     points: ['Requesting Data Download', 'Understanding HTML/JSON', 'Backing Up Media', 'Data Portability']
   },
   {
@@ -542,7 +496,6 @@ const BLOG_CONFIGS = [
     excerpt: 'How to disclose paid partnerships and work with brands.',
     date: '2025-11-26',
     category: 'Monetization',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=47',
     points: ['Paid Partnership Label', 'Approving Brand Partners', 'FTC Guidelines', 'Monetization Policies']
   },
   {
@@ -552,7 +505,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Create reaction videos and collaborations with the Remix feature.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=48',
     points: ['Enabling Remix', 'Recording Reactions', 'Layout Options', 'Creative Use Cases']
   },
   {
@@ -562,7 +514,6 @@ const BLOG_CONFIGS = [
     excerpt: 'Express yourself with a personalized digital character.',
     date: '2025-11-26',
     category: 'Features',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=49',
     points: ['Customizing Your Avatar', 'Using Avatars in Stories', 'Avatar Stickers', 'Meta Integration']
   },
   {
@@ -572,7 +523,6 @@ const BLOG_CONFIGS = [
     excerpt: 'What is next for the platform? AI, VR, and more.',
     date: '2025-11-26',
     category: 'News',
-    coverImage: 'https://loremflickr.com/800/600/socialmedia,technology?lock=50',
     points: ['AI Integration', 'VR/AR Experiences', 'Shopping Evolution', 'Community Focus']
   },
 ];
