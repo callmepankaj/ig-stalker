@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: "IG Stalker | View InstagramProfiles, Stories & Reels",
   description: "View Instagram profiles, posts, stories and reels anonymously without logging in. Free, secure and unlimited Instagram viewer.",
   keywords: ["instagram viewer", "anonymous instagram", "instagram stories", "instagram downloader", "ig stalker"],
+  other: {
+    "google-adsense-account": "ca-pub-4968261782960289",
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
