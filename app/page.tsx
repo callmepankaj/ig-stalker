@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
+import posthog from 'posthog-js';
 import { InstagramData, InstagramPost } from './types';
 import Modal from './components/Modal';
 
@@ -15,9 +16,35 @@ export default function Home() {
   const [loadingMore, setLoadingMore] = useState(false);
   const observerTarget = useRef<HTMLDivElement>(null);
 
+  const handlePostClick = (post: InstagramPost) => {
+    posthog.capture('post_viewed', {
+      post_id: post.id,
+      is_video: post.isVideo,
+      is_carousel: (post.children?.length || 0) > 0,
+      carousel_items_count: post.children?.length || 0,
+      likes_count: post.likes,
+      comments_count: post.comments,
+      username: data?.user.username,
+    });
+    setSelectedPost(post);
+  };
+
+  const handleProfilePicClick = () => {
+    if (!data) return;
+    posthog.capture('profile_picture_viewed', {
+      username: data.user.username,
+    });
+    setSelectedProfilePic(data.user.profilePicUrl);
+  };
+
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!username) return;
+
+    // Track profile search initiation
+    posthog.capture('profile_searched', {
+      searched_username: username,
+    });
 
     setLoading(true);
     setError('');
@@ -32,8 +59,24 @@ export default function Home() {
       }
 
       setData(result);
+
+      // Track successful profile load
+      posthog.capture('profile_loaded', {
+        searched_username: username,
+        posts_count: result.posts?.length || 0,
+        followers_count: result.user?.followers,
+        following_count: result.user?.following,
+        has_biography: !!result.user?.biography,
+        highlights_count: result.highlights?.length || 0,
+      });
     } catch (err: any) {
       setError(err.message);
+
+      // Track search failure
+      posthog.capture('profile_search_failed', {
+        searched_username: username,
+        error_message: err.message,
+      });
     } finally {
       setLoading(false);
     }
@@ -50,6 +93,14 @@ export default function Home() {
       if (!res.ok) {
         throw new Error(result.details || 'Failed to load more posts');
       }
+
+      // Track more posts loaded via infinite scroll
+      posthog.capture('more_posts_loaded', {
+        username: data.user.username,
+        new_posts_count: result.posts?.length || 0,
+        total_posts_loaded: (data.posts?.length || 0) + (result.posts?.length || 0),
+        has_more: result.page_info?.has_next_page,
+      });
 
       setData(prev => prev ? ({
         ...prev,
@@ -132,9 +183,9 @@ export default function Home() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Profile Header */}
             <div className="flex flex-col md:flex-row items-center gap-8 mb-12 p-8 bg-white dark:bg-zinc-900 rounded-3xl shadow-sm border border-zinc-100 dark:border-zinc-800">
-              <div 
+              <div
                 className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0 cursor-pointer group"
-                onClick={() => setSelectedProfilePic(data.user.profilePicUrl)}
+                onClick={handleProfilePicClick}
               >
                 <Image
                   src={`/api/proxy?url=${encodeURIComponent(data.user.profilePicUrl)}`}
@@ -211,10 +262,10 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
               {data.posts.length > 0 ? (
                 data.posts.map((post) => (
-                  <div 
-                    key={post.id} 
+                  <div
+                    key={post.id}
                     className="aspect-square bg-zinc-200 dark:bg-zinc-800 rounded-lg relative overflow-hidden group cursor-pointer"
-                    onClick={() => setSelectedPost(post)}
+                    onClick={() => handlePostClick(post)}
                   >
                     <Image
                       src={`/api/proxy?url=${encodeURIComponent(post.imageUrl)}`}

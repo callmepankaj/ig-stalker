@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import posthog from 'posthog-js';
 
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
@@ -14,11 +15,13 @@ export default function CookieConsent() {
 
   const acceptCookies = () => {
     localStorage.setItem('cookie-consent', 'accepted');
+    posthog.capture('cookie_consent_accepted');
     setShowConsent(false);
   };
 
   const declineCookies = () => {
     localStorage.setItem('cookie-consent', 'declined');
+    posthog.capture('cookie_consent_declined');
     setShowConsent(false);
   };
 

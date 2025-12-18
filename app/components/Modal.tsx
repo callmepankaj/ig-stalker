@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import posthog from 'posthog-js';
 import { InstagramPost } from '../types';
 
 interface ModalProps {
@@ -26,12 +27,13 @@ export default function Modal({ post, onClose }: ModalProps) {
   }, [onClose]);
 
   const handleDownload = async () => {
+    const mediaType = currentMedia.isVideo ? 'video' : 'image';
     try {
       const url = currentMedia.isVideo && currentMedia.videoUrl ? currentMedia.videoUrl : currentMedia.imageUrl;
       const response = await fetch(`/api/proxy?url=${encodeURIComponent(url)}`);
       const blob = await response.blob();
       const blobUrl = window.URL.createObjectURL(blob);
-      
+
       const a = document.createElement('a');
       a.href = blobUrl;
       a.download = `instagram-${post.id}-${currentIndex}.${currentMedia.isVideo ? 'mp4' : 'jpg'}`;
@@ -39,20 +41,54 @@ export default function Modal({ post, onClose }: ModalProps) {
       a.click();
       document.body.removeChild(a);
       window.URL.revokeObjectURL(blobUrl);
+
+      // Track successful download
+      posthog.capture('media_downloaded', {
+        post_id: post.id,
+        media_type: mediaType,
+        carousel_index: currentIndex,
+        is_carousel: mediaItems.length > 1,
+        file_size_bytes: blob.size,
+      });
     } catch (error) {
       console.error('Download failed:', error);
+
+      // Track download failure
+      posthog.capture('download_failed', {
+        post_id: post.id,
+        media_type: mediaType,
+        carousel_index: currentIndex,
+        error_message: error instanceof Error ? error.message : 'Unknown error',
+      });
+
       alert('Failed to download media');
     }
   };
 
   const nextSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
+    const newIndex = (currentIndex + 1) % mediaItems.length;
+    posthog.capture('carousel_navigated', {
+      post_id: post.id,
+      direction: 'next',
+      from_index: currentIndex,
+      to_index: newIndex,
+      total_items: mediaItems.length,
+    });
+    setCurrentIndex(newIndex);
   };
 
   const prevSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
+    const newIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+    posthog.capture('carousel_navigated', {
+      post_id: post.id,
+      direction: 'previous',
+      from_index: currentIndex,
+      to_index: newIndex,
+      total_items: mediaItems.length,
+    });
+    setCurrentIndex(newIndex);
   };
 
   return (

@@ -1,8 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import posthog from 'posthog-js';
 import { BLOG_POSTS } from '../data/blogs';
 
 export default function BlogListingPage() {
+  const handleArticleClick = (post: typeof BLOG_POSTS[0]) => {
+    posthog.capture('blog_article_clicked', {
+      article_id: post.id,
+      article_slug: post.slug,
+      article_title: post.title,
+      article_category: post.category,
+    });
+  };
+
   return (
     <main className="container mx-auto px-4 pt-32 pb-20 max-w-7xl">
       <div className="text-center mb-16">
@@ -16,9 +28,10 @@ export default function BlogListingPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {BLOG_POSTS.map((post) => (
-          <Link 
-            key={post.id} 
+          <Link
+            key={post.id}
             href={`/blog/${post.slug}`}
+            onClick={() => handleArticleClick(post)}
             className="group flex flex-col bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:shadow-xl transition-all duration-300"
           >
             <div className="relative h-48 w-full overflow-hidden">

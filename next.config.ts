@@ -42,7 +42,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://us.i.posthog.com https://us-assets.i.posthog.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.cdninstagram.com https://*.fbcdn.net https://pagead2.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://pagead2.googlesyndication.com; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com;"
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://us.i.posthog.com https://us-assets.i.posthog.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.cdninstagram.com https://*.fbcdn.net https://pagead2.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://pagead2.googlesyndication.com https://*.adtrafficquality.google; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com;"
           }
         ]
       }

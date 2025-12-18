@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import posthog from 'posthog-js';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +17,13 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleExternalToolClick = (toolName: string, toolUrl: string) => {
+    posthog.capture('external_tool_clicked', {
+      tool_name: toolName,
+      tool_url: toolUrl,
+    });
+  };
 
   const navLinks = [
     { name: 'About', href: '/about' },
@@ -89,6 +97,7 @@ export default function Navbar() {
                           href={child.href}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => handleExternalToolClick(child.name, child.href)}
                           className="block px-4 py-2.5 text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors"
                         >
                           {child.name}
@@ -139,7 +148,10 @@ export default function Navbar() {
                         href={child.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={() => {
+                          handleExternalToolClick(child.name, child.href);
+                          setIsMobileMenuOpen(false);
+                        }}
                         className="text-base text-zinc-500 dark:text-zinc-500 hover:text-black dark:hover:text-white transition-colors"
                       >
                         {child.name}
