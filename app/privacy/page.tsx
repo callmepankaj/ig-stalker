@@ -4,7 +4,7 @@ export default function PrivacyPage() {
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
       <div className="prose dark:prose-invert max-w-none">
         <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
-        
+
         <p className="mb-6">
           At IG Stalker, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by IG Stalker and how we use it.
         </p>
@@ -17,6 +17,9 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mt-8 mb-4">Cookies and Web Beacons</h2>
         <p className="mb-6">
           Like any other website, IG Stalker uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
+        </p>
+        <p className="mb-6">
+          <strong>Google DoubleClick DART Cookie:</strong> Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4">Third Party Privacy Policies</h2>

@@ -192,13 +192,13 @@ export default function Home() {
                   alt={data.user.username}
                   fill
                   className="rounded-full object-cover border-4 border-zinc-100 dark:border-zinc-800 group-hover:opacity-90 transition-opacity"
-                  unoptimized 
+                  unoptimized
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
                 </div>
               </div>
-              
+
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
                   <h2 className="text-2xl font-bold">{data.user.username}</h2>
@@ -275,14 +275,14 @@ export default function Home() {
                       unoptimized
                     />
                     {post.isVideo && (
-                       <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                       </div>
+                      <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                      </div>
                     )}
                     {post.children && post.children.length > 0 && (
-                       <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                       </div>
+                      <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                      </div>
                     )}
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white font-bold">
                       <span>❤️ {post.likes}</span>
@@ -313,7 +313,7 @@ export default function Home() {
         )}
 
         {selectedProfilePic && (
-          <Modal 
+          <Modal
             post={{
               id: 'profile-pic',
               imageUrl: selectedProfilePic,
@@ -321,15 +321,15 @@ export default function Home() {
               likes: 0,
               comments: 0,
               isVideo: false,
-            }} 
-            onClose={() => setSelectedProfilePic(null)} 
+            }}
+            onClose={() => setSelectedProfilePic(null)}
           />
         )}
 
         {/* Landing Page Content - Only show when no data is loaded */}
         {!data && !loading && (
           <div className="mt-24 space-y-32 animate-in fade-in slide-in-from-bottom-8 duration-700">
-            
+
             {/* Features Section */}
             <section>
               <h2 className="text-3xl font-bold text-center mb-12">Why Use IG Stalker?</h2>
@@ -394,25 +394,85 @@ export default function Home() {
               </div>
             </section>
 
+            {/* Use Cases Section */}
+            <section className="max-w-5xl mx-auto py-12">
+              <h2 className="text-3xl font-bold text-center mb-12">Who is IG Stalker For?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex gap-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                  <div className="text-3xl">👨‍👩‍👧</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Concerned Parents</h3>
+                    <p className="text-zinc-600 dark:text-zinc-400">Keep an eye on your children's online activity and ensure they aren't interacting with strangers, without needing to follow them.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                  <div className="text-3xl">📈</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Marketing Professionals</h3>
+                    <p className="text-zinc-600 dark:text-zinc-400">Analyze competitor content strategies, track engagement rates, and find inspiration without skewing your own analytics.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                  <div className="text-3xl">🎓</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Researchers & Journalists</h3>
+                    <p className="text-zinc-600 dark:text-zinc-400">Gather public data for stories or studies efficiently while maintaining professional distance and anonymity.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                  <div className="text-3xl">🔒</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Privacy-Conscious Users</h3>
+                    <p className="text-zinc-600 dark:text-zinc-400">Browse content freely without sharing your personal data with algorithms or leaving a digital footprint.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Legality & Trust Section */}
+            <section className="bg-blue-50 dark:bg-zinc-900 border border-blue-100 dark:border-zinc-800 rounded-2xl p-8 max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Is IG Stalker Safe & Legal?
+              </h2>
+              <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
+                <p>
+                  <strong>Yes.</strong> IG Stalker is a compliant and safe tool that operates strictly within the public domain. Here is why you can trust us:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Public Data Only:</strong> We purely index and display content that users have voluntarily made public. We do not hack accounts or bypass privacy settings to view private profiles.</li>
+                  <li><strong>No Data Storage:</strong> We do not store your search history, IP address, or any personal logs. Your session is ephemeral.</li>
+                  <li><strong>Security First:</strong> Our site is protected with SSL encryption, ensuring that your connection is secure.</li>
+                </ul>
+                <p className="text-sm text-zinc-500 mt-4">
+                  <em>Disclaimer: This tool is for educational and informational purposes only. Please respect the privacy users and Instagram's Terms of Service.</em>
+                </p>
+              </div>
+            </section>
+
             {/* FAQ Section */}
-            <section className="max-w-3xl mx-auto">
+            <section className="max-w-3xl mx-auto pb-24">
               <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
               <div className="space-y-6">
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
                   <h3 className="text-lg font-bold mb-2">Is it really anonymous?</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">Yes, absolutely. We don't require you to log in, so Instagram has no way of knowing who is viewing the profile.</p>
+                  <p className="text-zinc-600 dark:text-zinc-400">Yes, absolutely. Since you do not need to log in to use IG Stalker, Instagram has no way of linking the view back to your account. The profile owner will never know you visited.</p>
                 </div>
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
                   <h3 className="text-lg font-bold mb-2">Can I view private profiles?</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">No. Due to Instagram's privacy policies, we can only display content from public profiles.</p>
+                  <p className="text-zinc-600 dark:text-zinc-400">No. We respect user privacy and Instagram's security policies. IG Stalker can only display content from profiles that have been set to "Public" by the user. If an account is private, you must follow them to see their content.</p>
                 </div>
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
                   <h3 className="text-lg font-bold mb-2">Does it cost anything?</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">No, IG Stalker is completely free to use for everyone.</p>
+                  <p className="text-zinc-600 dark:text-zinc-400">No, IG Stalker is completely free to use. We believe in free access to public information. There are no hidden fees or subscriptions required.</p>
                 </div>
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
-                  <h3 className="text-lg font-bold mb-2">Can I download stories?</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">Currently, we support viewing highlight covers. Full story viewing and downloading is coming in a future update.</p>
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-bold mb-2">Can I download photos and videos?</h3>
+                  <p className="text-zinc-600 dark:text-zinc-400">Yes! When you open a post on IG Stalker, you can view it in high resolution. We provide options to save this public content directly to your device for offline viewing.</p>
+                </div>
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-bold mb-2">Why is the search not working?</h3>
+                  <p className="text-zinc-600 dark:text-zinc-400">If a search fails, it might be because the username is incorrect, the account has been deleted, or the user has lately switched to private. Please double-check the spelling and try again.</p>
                 </div>
               </div>
             </section>
