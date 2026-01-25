@@ -108,8 +108,7 @@ export default function Home() {
         page_info: result.page_info
       }) : null);
     } catch (err: any) {
-      console.error(err);
-      // Optional: Show a toast or small error indicator instead of alert for auto-scroll
+      // Silently handle errors for auto-scroll
     } finally {
       setLoadingMore(false);
     }
@@ -140,11 +139,14 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans">
       <main className="container mx-auto px-4 pt-32 pb-20 max-w-7xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             Anonymous Instagram Viewer
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
-            View Instagram profiles, posts, and stories anonymously without logging in.
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-4">
+            View Instagram profiles, posts, stories, and reels anonymously without logging in. Browse public content, download media, and explore Instagram without leaving a digital footprint.
+          </p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-500 max-w-xl mx-auto">
+            Free, secure, and completely anonymous. No account required. No tracking. No registration.
           </p>
         </div>
 
@@ -193,6 +195,13 @@ export default function Home() {
                   fill
                   className="rounded-full object-cover border-4 border-zinc-100 dark:border-zinc-800 group-hover:opacity-90 transition-opacity"
                   unoptimized
+                  onError={(e) => {
+                    // Fallback: try direct URL if proxy fails
+                    const target = e.target as HTMLImageElement;
+                    if (target.src.includes('/api/proxy')) {
+                      target.src = data.user.profilePicUrl;
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
@@ -247,6 +256,13 @@ export default function Home() {
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-300"
                           unoptimized
+                          onError={(e) => {
+                            // Fallback: try direct URL if proxy fails
+                            const target = e.target as HTMLImageElement;
+                            if (target.src.includes('/api/proxy')) {
+                              target.src = highlight.coverUrl;
+                            }
+                          }}
                         />
                       </div>
                     </div>
@@ -273,6 +289,13 @@ export default function Home() {
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
                       unoptimized
+                      onError={(e) => {
+                        // Fallback: try direct URL if proxy fails
+                        const target = e.target as HTMLImageElement;
+                        if (target.src.includes('/api/proxy')) {
+                          target.src = post.imageUrl;
+                        }
+                      }}
                     />
                     {post.isVideo && (
                       <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">

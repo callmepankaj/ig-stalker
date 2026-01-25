@@ -75,11 +75,9 @@ export async function GET(request: Request) {
           });
           const url = `https://www.instagram.com/graphql/query/?query_hash=${hash}&variables=${encodeURIComponent(variables)}`;
           
-          console.log(`Trying hash ${hash} for user ${userId} cursor ${cursor}`);
           const response = await fetch(url, { headers });
           
           if (!response.ok) {
-            console.log(`Hash ${hash} failed with status ${response.status}`);
             throw new Error(`HTTP ${response.status}`);
           }
 
@@ -87,7 +85,6 @@ export async function GET(request: Request) {
           const edge = data?.data?.user?.edge_owner_to_timeline_media;
 
           if (edge) {
-            console.log(`Hash ${hash} success. Got ${edge.edges.length} posts.`);
             const posts = edge.edges.map((e: any) => ({
               id: e.node.id,
               imageUrl: e.node.display_url,
@@ -111,11 +108,8 @@ export async function GET(request: Request) {
                 end_cursor: edge.page_info.end_cursor,
               }
             });
-          } else {
-             console.log(`Hash ${hash} returned no edge data.`);
           }
         } catch (err) {
-          console.log(`Hash ${hash} failed:`, err);
           lastError = err;
           // Continue to next hash
         }
@@ -136,7 +130,6 @@ export async function GET(request: Request) {
       if (response.status === 404) {
         return NextResponse.json({ error: 'User not found' }, { status: 404 });
       }
-      console.error(`Instagram API error: ${response.status}`);
       throw new Error(`Instagram returned ${response.status}`);
     }
 
@@ -188,7 +181,6 @@ export async function GET(request: Request) {
     return NextResponse.json(profileData);
 
   } catch (error: any) {
-    console.error('Scraping error:', error);
     return NextResponse.json({ error: 'Failed to fetch data', details: error.message }, { status: 500 });
   }
 }

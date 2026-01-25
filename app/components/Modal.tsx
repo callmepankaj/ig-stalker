@@ -115,6 +115,13 @@ export default function Modal({ post, onClose }: ModalProps) {
                 fill
                 className="object-contain"
                 unoptimized
+                onError={(e) => {
+                  // Fallback: try direct URL if proxy fails
+                  const target = e.target as HTMLImageElement;
+                  if (target.src.includes('/api/proxy')) {
+                    target.src = currentMedia.imageUrl;
+                  }
+                }}
               />
             </div>
           )}
