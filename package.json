@@ -9,7 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.106.2",
     "@vercel/analytics": "^1.5.0",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.16.0",
     "next": "16.0.7",
     "posthog-js": "^1.297.2",
     "posthog-node": "^5.13.2",
