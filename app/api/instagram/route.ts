@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { InstagramPost } from '../../types';
 
 const USER_AGENTS = [
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
@@ -15,6 +16,91 @@ const IG_APP_IDS = [
 const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+type InstagramMediaNode = {
+  id: string;
+  display_url: string;
+  edge_media_to_caption?: {
+    edges?: { node?: { text?: string } }[];
+  };
+  edge_liked_by?: { count?: number };
+  edge_media_to_comment?: { count?: number };
+  is_video: boolean;
+  video_url?: string;
+  edge_sidecar_to_children?: {
+    edges?: { node: InstagramMediaNode }[];
+  };
+};
+
+type InstagramMediaEdge = {
+  node: InstagramMediaNode;
+};
+
+type InstagramTimeline = {
+  count?: number;
+  edges?: InstagramMediaEdge[];
+  page_info?: {
+    has_next_page?: boolean;
+    end_cursor?: string | null;
+  };
+};
+
+type InstagramUser = {
+  username: string;
+  full_name: string;
+  biography: string;
+  profile_pic_url?: string;
+  profile_pic_url_hd?: string;
+  edge_followed_by?: { count?: number };
+  edge_follow?: { count?: number };
+  edge_owner_to_timeline_media?: InstagramTimeline;
+  id: string;
+  highlight_reel_tray?: { edges?: InstagramHighlightEdge[] };
+  edge_highlight_reels?: { edges?: InstagramHighlightEdge[] };
+};
+
+type InstagramHighlightEdge = {
+  node: {
+    id: string;
+    title: string;
+    cover_media?: {
+      thumbnail_src?: string;
+    };
+    cover_media_cropped_thumbnail?: {
+      url?: string;
+    };
+  };
+};
+
+type WebProfileResponse = {
+  data?: {
+    user?: InstagramUser;
+  };
+};
+
+type GraphqlTimelineResponse = {
+  data?: {
+    user?: {
+      edge_owner_to_timeline_media?: InstagramTimeline;
+    };
+  };
+};
+
+const mapPost = (edge: InstagramMediaEdge): InstagramPost => ({
+  id: edge.node.id,
+  imageUrl: edge.node.display_url,
+  caption: edge.node.edge_media_to_caption?.edges?.[0]?.node?.text || '',
+  likes: edge.node.edge_liked_by?.count || 0,
+  comments: edge.node.edge_media_to_comment?.count || 0,
+  isVideo: edge.node.is_video,
+  videoUrl: edge.node.video_url,
+  children: edge.node.edge_sidecar_to_children?.edges?.map(child => ({
+    id: child.node.id,
+    imageUrl: child.node.display_url,
+    isVideo: child.node.is_video,
+    videoUrl: child.node.video_url,
+  })) || [],
+});
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -62,7 +148,7 @@ export async function GET(request: Request) {
         '003056d32c2554def87d2635815d9952', // New candidate
       ];
 
-      let lastError;
+      let lastError: unknown;
       for (const hash of queryHashes) {
         try {
           // Add small delay between retries
@@ -81,31 +167,17 @@ export async function GET(request: Request) {
             throw new Error(`HTTP ${response.status}`);
           }
 
-          const data = await response.json();
+          const data = await response.json() as GraphqlTimelineResponse;
           const edge = data?.data?.user?.edge_owner_to_timeline_media;
 
           if (edge) {
-            const posts = edge.edges.map((e: any) => ({
-              id: e.node.id,
-              imageUrl: e.node.display_url,
-              caption: e.node.edge_media_to_caption?.edges[0]?.node?.text || '',
-              likes: e.node.edge_liked_by?.count || 0,
-              comments: e.node.edge_media_to_comment?.count || 0,
-              isVideo: e.node.is_video,
-              videoUrl: e.node.video_url,
-              children: e.node.edge_sidecar_to_children?.edges?.map((child: any) => ({
-                id: child.node.id,
-                imageUrl: child.node.display_url,
-                isVideo: child.node.is_video,
-                videoUrl: child.node.video_url,
-              })) || [],
-            }));
+            const posts = edge.edges?.map(mapPost) || [];
 
             return NextResponse.json({
               posts,
               page_info: {
-                has_next_page: edge.page_info.has_next_page,
-                end_cursor: edge.page_info.end_cursor,
+                has_next_page: edge.page_info?.has_next_page || false,
+                end_cursor: edge.page_info?.end_cursor || null,
               }
             });
           }
@@ -133,7 +205,7 @@ export async function GET(request: Request) {
       throw new Error(`Instagram returned ${response.status}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as WebProfileResponse;
     const user = data?.data?.user;
 
     if (!user) {
@@ -152,22 +224,8 @@ export async function GET(request: Request) {
         posts: user.edge_owner_to_timeline_media?.count?.toLocaleString() || '0',
         id: user.id,
       },
-      posts: user.edge_owner_to_timeline_media?.edges?.map((edge: any) => ({
-        id: edge.node.id,
-        imageUrl: edge.node.display_url,
-        caption: edge.node.edge_media_to_caption?.edges[0]?.node?.text || '',
-        likes: edge.node.edge_liked_by?.count || 0,
-        comments: edge.node.edge_media_to_comment?.count || 0,
-        isVideo: edge.node.is_video,
-        videoUrl: edge.node.video_url,
-        children: edge.node.edge_sidecar_to_children?.edges?.map((child: any) => ({
-          id: child.node.id,
-          imageUrl: child.node.display_url,
-          isVideo: child.node.is_video,
-          videoUrl: child.node.video_url,
-        })) || [],
-      })) || [],
-      highlights: (user.highlight_reel_tray?.edges || user.edge_highlight_reels?.edges)?.map((edge: any) => ({
+      posts: user.edge_owner_to_timeline_media?.edges?.map(mapPost) || [],
+      highlights: (user.highlight_reel_tray?.edges || user.edge_highlight_reels?.edges)?.map((edge) => ({
         id: edge.node.id,
         title: edge.node.title,
         coverUrl: edge.node.cover_media?.thumbnail_src || edge.node.cover_media_cropped_thumbnail?.url,
@@ -180,7 +238,10 @@ export async function GET(request: Request) {
 
     return NextResponse.json(profileData);
 
-  } catch (error: any) {
-    return NextResponse.json({ error: 'Failed to fetch data', details: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({
+      error: 'Failed to fetch data',
+      details: error instanceof Error ? error.message : 'Unknown error',
+    }, { status: 500 });
   }
 }

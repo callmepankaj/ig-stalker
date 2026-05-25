@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function ContactPage() {
   return (
     <main className="container mx-auto px-4 py-24 max-w-4xl">
@@ -44,8 +46,8 @@ export default function ContactPage() {
           To help us assist you more effectively, please consider the following:
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2 text-zinc-600 dark:text-zinc-400">
-          <li>Check our <a href="/blog" className="text-blue-500 hover:underline">blog</a> and <a href="/about" className="text-blue-500 hover:underline">FAQ section</a> for common questions</li>
-          <li>Review our <a href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</a> and <a href="/terms" className="text-blue-500 hover:underline">Terms of Service</a></li>
+          <li>Check our <Link href="/blog" className="text-blue-500 hover:underline">blog</Link> and <Link href="/about" className="text-blue-500 hover:underline">FAQ section</Link> for common questions</li>
+          <li>Review our <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-blue-500 hover:underline">Terms of Service</Link></li>
           <li>For technical issues, include details about your browser, device, and the steps to reproduce the problem</li>
           <li>Be specific about your request or concern to help us provide a more accurate response</li>
         </ul>
@@ -57,7 +59,7 @@ export default function ContactPage() {
 
         <div className="bg-blue-50 dark:bg-zinc-900 border border-blue-100 dark:border-zinc-800 rounded-xl p-6 mt-8">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            <strong>Note:</strong> We respect your privacy. All communications are handled with confidentiality, and we do not share your contact information with third parties. For more information, please review our <a href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</a>.
+            <strong>Note:</strong> We respect your privacy. All communications are handled with confidentiality, and we do not share your contact information with third parties. For more information, please review our <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link>.
           </p>
         </div>
       </div>

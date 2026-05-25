@@ -6,6 +6,18 @@ import posthog from 'posthog-js';
 import { InstagramData, InstagramPost } from './types';
 import Modal from './components/Modal';
 
+type InstagramApiError = {
+  error?: string;
+  details?: string;
+};
+
+type LoadMoreResponse = {
+  posts?: InstagramPost[];
+  page_info?: InstagramData['page_info'];
+  details?: string;
+  error?: string;
+};
+
 export default function Home() {
   const [username, setUsername] = useState('');
   const [data, setData] = useState<InstagramData | null>(null);
@@ -52,7 +64,7 @@ export default function Home() {
 
     try {
       const res = await fetch(`/api/instagram?username=${username}`);
-      const result = await res.json();
+      const result = await res.json() as InstagramData & InstagramApiError;
 
       if (!res.ok) {
         throw new Error(result.error || 'Failed to fetch profile');
@@ -69,13 +81,14 @@ export default function Home() {
         has_biography: !!result.user?.biography,
         highlights_count: result.highlights?.length || 0,
       });
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Failed to fetch profile';
+      setError(message);
 
       // Track search failure
       posthog.capture('profile_search_failed', {
         searched_username: username,
-        error_message: err.message,
+        error_message: message,
       });
     } finally {
       setLoading(false);
@@ -88,7 +101,7 @@ export default function Home() {
     setLoadingMore(true);
     try {
       const res = await fetch(`/api/instagram?cursor=${data.page_info.end_cursor}&userId=${data.user.id}`);
-      const result = await res.json();
+      const result = await res.json() as LoadMoreResponse;
 
       if (!res.ok) {
         throw new Error(result.details || 'Failed to load more posts');
@@ -98,16 +111,16 @@ export default function Home() {
       posthog.capture('more_posts_loaded', {
         username: data.user.username,
         new_posts_count: result.posts?.length || 0,
-        total_posts_loaded: (data.posts?.length || 0) + (result.posts?.length || 0),
+        total_posts_loaded: data.posts.length + (result.posts?.length || 0),
         has_more: result.page_info?.has_next_page,
       });
 
       setData(prev => prev ? ({
         ...prev,
-        posts: [...prev.posts, ...result.posts],
-        page_info: result.page_info
+        posts: [...prev.posts, ...(result.posts || [])],
+        page_info: result.page_info || prev.page_info
       }) : null);
-    } catch (err: any) {
+    } catch {
       // Silently handle errors for auto-scroll
     } finally {
       setLoadingMore(false);
@@ -124,13 +137,15 @@ export default function Home() {
       { threshold: 1.0 }
     );
 
-    if (observerTarget.current) {
-      observer.observe(observerTarget.current);
+    const target = observerTarget.current;
+
+    if (target) {
+      observer.observe(target);
     }
 
     return () => {
-      if (observerTarget.current) {
-        observer.unobserve(observerTarget.current);
+      if (target) {
+        observer.unobserve(target);
       }
     };
   }, [loadMorePosts, data?.page_info.has_next_page]);
@@ -195,13 +210,6 @@ export default function Home() {
                   fill
                   className="rounded-full object-cover border-4 border-zinc-100 dark:border-zinc-800 group-hover:opacity-90 transition-opacity"
                   unoptimized
-                  onError={(e) => {
-                    // Fallback: try direct URL if proxy fails
-                    const target = e.target as HTMLImageElement;
-                    if (target.src.includes('/api/proxy')) {
-                      target.src = data.user.profilePicUrl;
-                    }
-                  }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
@@ -256,13 +264,6 @@ export default function Home() {
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-300"
                           unoptimized
-                          onError={(e) => {
-                            // Fallback: try direct URL if proxy fails
-                            const target = e.target as HTMLImageElement;
-                            if (target.src.includes('/api/proxy')) {
-                              target.src = highlight.coverUrl;
-                            }
-                          }}
                         />
                       </div>
                     </div>
@@ -289,13 +290,6 @@ export default function Home() {
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
                       unoptimized
-                      onError={(e) => {
-                        // Fallback: try direct URL if proxy fails
-                        const target = e.target as HTMLImageElement;
-                        if (target.src.includes('/api/proxy')) {
-                          target.src = post.imageUrl;
-                        }
-                      }}
                     />
                     {post.isVideo && (
                       <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">

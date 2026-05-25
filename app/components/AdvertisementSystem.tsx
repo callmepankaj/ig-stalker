@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ExternalLink,
+  Check,
+  Copy,
   Megaphone,
   MousePointer2,
   Rocket,
@@ -153,6 +154,15 @@ function StickyAdvertiseCTA({ onClick }: { onClick: () => void }) {
 }
 
 function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [copied, setCopied] = useState(false);
+  const contactEmail = 'ashesnegi22@gmail.com';
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText(contactEmail);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
+  };
+
   useEffect(() => {
     if (!open) return;
 
@@ -220,7 +230,7 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.045] p-5 text-center">
                   <MousePointer2 className="mx-auto mb-3 h-6 w-6 text-zinc-300" aria-hidden="true" />
-                  <div className="text-xl font-bold">High-intent</div>
+                  <div className="text-xl font-bold">High-traffic</div>
                   <div className="mt-1 text-sm text-zinc-400">Buyers, not browsers</div>
                 </div>
                 <div className="rounded-xl border border-amber-400/35 bg-amber-400/10 p-5 text-center">
@@ -230,16 +240,7 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
                 </div>
               </div>
 
-              <section className="mt-8">
-                <h3 className="text-lg font-bold">How it works</h3>
-                <p className="mt-4 text-base leading-8 text-zinc-300">
-                  Sponsors rotate across sticky sidebar positions with fair visibility every 5 seconds.
-                  Your placement appears on desktop sidebars and mobile carousel banners with premium
-                  exposure across IG Stalker pages.
-                </p>
-              </section>
-
-              <section className="mt-7 rounded-xl border border-white/8 bg-black/45 p-5">
+              <section className="mt-8 rounded-xl border border-white/8 bg-black/45 p-5">
                 <h3 className="text-lg font-bold">Pricing</h3>
                 <p className="mt-4 text-base text-zinc-300">
                   <span className="font-bold text-white">Monthly rate:</span> $2,000/month
@@ -249,15 +250,26 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
                 </p>
               </section>
 
-              <a
-                href="https://www.phonepe.com/business-solutions/payment-gateway/"
-                target="_blank"
-                rel="noreferrer"
+              <section className="mt-7">
+                <h3 className="text-lg font-bold">Procedure</h3>
+                <p className="mt-4 text-base leading-8 text-zinc-300">
+                  Copy the email below and send your Company Name, Logo, Description, and Link.
+                  We will review the placement and share the payment details.
+                </p>
+              </section>
+
+              <button
+                type="button"
+                onClick={handleCopyEmail}
                 className="mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-4 text-center font-semibold text-black transition hover:bg-zinc-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                Get started ($2,000/mo)
-                <ExternalLink className="h-5 w-5" aria-hidden="true" />
-              </a>
+                {copied ? 'Email copied' : `Copy email (${contactEmail})`}
+                {copied ? (
+                  <Check className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Copy className="h-5 w-5" aria-hidden="true" />
+                )}
+              </button>
             </div>
           </motion.div>
         </motion.div>
