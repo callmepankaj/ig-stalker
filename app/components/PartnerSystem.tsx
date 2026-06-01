@@ -12,9 +12,9 @@ import {
   X,
   Zap,
 } from 'lucide-react';
-import { Advertisement, fallbackAdvertisements } from '../lib/advertisements';
+import { PartnerItem, fallbackPartners } from '../lib/partners';
 
-function Logo({ ad }: { ad: Advertisement }) {
+function Logo({ ad }: { ad: PartnerItem }) {
   if (ad.logo_url) {
     return (
       <img
@@ -29,15 +29,15 @@ function Logo({ ad }: { ad: Advertisement }) {
   return <Rocket className="h-5 w-5 text-zinc-950" aria-hidden="true" />;
 }
 
-function AdCard({ ad, index }: { ad: Advertisement; index: number }) {
-  const backText = `Visit ${ad.company_name} before this monthly sponsor slot ends.`;
+function FeatureCard({ ad, index }: { ad: PartnerItem; index: number }) {
+  const backText = `Visit ${ad.company_name} before this monthly partner spot ends.`;
 
   return (
     <motion.a
       href={ad.company_link}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Visit sponsor ${ad.company_name}`}
+      aria-label={`Visit partner ${ad.company_name}`}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
@@ -46,14 +46,14 @@ function AdCard({ ad, index }: { ad: Advertisement; index: number }) {
       className="group relative block h-[148px] w-[252px] rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
       style={{ perspective: '1100px' }}
     >
-      <span className="ad-hover-border pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <span className="feature-hover-border pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <span className="pointer-events-none absolute -inset-3 rounded-[22px] bg-white/5 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
       <div
-        className="ad-flip-card relative h-full w-full"
+        className="feature-flip-card relative h-full w-full"
         style={{ animationDelay: `${index * 0.38}s` }}
       >
-        <div className="ad-card-face ad-reference-face">
-          <div className="ad-noise" />
+        <div className="feature-card-face feature-reference-face">
+          <div className="feature-noise" />
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-5 text-center">
             <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-sky-400/90 shadow-lg shadow-sky-950/40">
               <Logo ad={ad} />
@@ -63,9 +63,9 @@ function AdCard({ ad, index }: { ad: Advertisement; index: number }) {
           </div>
         </div>
 
-        <div className="ad-card-face ad-card-back ad-reference-face">
-          <div className="ad-noise" />
-          <div className="ad-animated-glow" />
+        <div className="feature-card-face feature-card-back feature-reference-face">
+          <div className="feature-noise" />
+          <div className="feature-animated-glow" />
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-5 text-center">
             <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-sky-400/90 shadow-lg shadow-sky-950/40">
               <Logo ad={ad} />
@@ -79,10 +79,10 @@ function AdCard({ ad, index }: { ad: Advertisement; index: number }) {
   );
 }
 
-function AdSidebar({ side, items }: { side: 'left' | 'right'; items: Advertisement[] }) {
+function FeatureSidebar({ side, items }: { side: 'left' | 'right'; items: PartnerItem[] }) {
   return (
     <aside
-      aria-label={`${side} sponsor advertisements`}
+      aria-label={`${side} featured partners`}
       className={`pointer-events-none fixed top-3 z-[60] hidden h-[calc(100vh-1.5rem)] w-[252px] 2xl:block ${
         side === 'left' ? 'left-3' : 'right-3'
       }`}
@@ -94,8 +94,8 @@ function AdSidebar({ side, items }: { side: 'left' | 'right'; items: Advertiseme
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         {items.map((ad, index) => (
-          <div className="ad-float pointer-events-auto" style={{ animationDelay: `${index * 0.6}s` }} key={ad.id}>
-            <AdCard ad={ad} index={side === 'left' ? index : index + 5} />
+          <div className="feature-float pointer-events-auto" style={{ animationDelay: `${index * 0.6}s` }} key={ad.id}>
+            <FeatureCard ad={ad} index={side === 'left' ? index : index + 5} />
           </div>
         ))}
       </motion.div>
@@ -103,11 +103,11 @@ function AdSidebar({ side, items }: { side: 'left' | 'right'; items: Advertiseme
   );
 }
 
-function MobileAdCarousel({ items }: { items: Advertisement[] }) {
+function MobileFeatureCarousel({ items }: { items: PartnerItem[] }) {
   return (
-    <div className="fixed inset-x-0 bottom-3 z-40 px-3 2xl:hidden" aria-label="Mobile sponsor advertisements">
+    <div className="fixed inset-x-0 bottom-3 z-40 px-3 2xl:hidden" aria-label="Featured partners">
       <div className="overflow-hidden rounded-xl border border-white/10 bg-black/65 shadow-2xl shadow-black/40 backdrop-blur-xl">
-        <div className="ad-mobile-track flex w-max gap-3 p-2">
+        <div className="feature-mobile-track flex w-max gap-3 p-2">
           {[...items, ...items].map((ad, index) => (
             <a
               href={ad.company_link}
@@ -131,29 +131,29 @@ function MobileAdCarousel({ items }: { items: Advertisement[] }) {
   );
 }
 
-function StickyAdvertiseCTA({ onClick }: { onClick: () => void }) {
+function StickyPartnerCTA({ onClick }: { onClick: () => void }) {
   return (
     <motion.button
       type="button"
-      id="advertise"
+      id="partner-with-us"
       onClick={onClick}
       whileHover={{ y: -3, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className="group fixed bottom-6 right-3 z-[65] hidden h-[118px] w-[252px] cursor-pointer rounded-xl border border-dashed border-white/12 bg-black/35 p-4 text-center shadow-2xl shadow-black/40 outline-none backdrop-blur-xl transition hover:border-white/30 hover:bg-white/[0.045] focus-visible:ring-2 focus-visible:ring-white/70 sm:block 2xl:bottom-5"
       aria-haspopup="dialog"
-      aria-label="Advertise on IG Stalker"
+      aria-label="Partner with IG Stalker"
     >
       <span className="pointer-events-none absolute -inset-2 rounded-2xl bg-white/10 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
       <span className="relative mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5">
         <Megaphone className="h-4 w-4 text-zinc-400" aria-hidden="true" />
       </span>
-      <span className="relative block text-sm font-semibold text-white/78">Advertise</span>
-      <span className="relative mt-1 block text-xs text-zinc-500">18 sponsor spots</span>
+      <span className="relative block text-sm font-semibold text-white/78">Partner with us</span>
+      <span className="relative mt-1 block text-xs text-zinc-500">18 partner spots</span>
     </motion.button>
   );
 }
 
-function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+function PartnerModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [copied, setCopied] = useState(false);
   const contactEmail = 'ashesnegi22@gmail.com';
 
@@ -194,8 +194,8 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-labelledby="advertise-modal-title"
-            aria-describedby="advertise-modal-subtitle"
+            aria-labelledby="partner-modal-title"
+            aria-describedby="partner-modal-subtitle"
             initial={{ opacity: 0, y: 22, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.97 }}
@@ -207,7 +207,7 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
               type="button"
               onClick={onClose}
               className="absolute right-5 top-5 rounded-full p-1.5 text-zinc-400 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-              aria-label="Close advertise modal"
+              aria-label="Close partner modal"
             >
               <X className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -215,10 +215,10 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
             <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_70%_0%,rgba(250,204,21,0.10),transparent_30%),radial-gradient(circle_at_0%_20%,rgba(59,130,246,0.08),transparent_28%)]" />
 
             <div className="relative">
-              <h2 id="advertise-modal-title" className="pr-10 text-2xl font-bold tracking-tight sm:text-3xl">
-                Advertise on IG Stalker
+              <h2 id="partner-modal-title" className="pr-10 text-2xl font-bold tracking-tight sm:text-3xl">
+                Partner with IG Stalker
               </h2>
-              <p id="advertise-modal-subtitle" className="mt-4 text-base leading-7 text-zinc-300">
+              <p id="partner-modal-subtitle" className="mt-4 text-base leading-7 text-zinc-300">
                 Reach 30K+ entrepreneurs and founders every month
               </p>
 
@@ -278,31 +278,31 @@ function AdvertiseModal({ open, onClose }: { open: boolean; onClose: () => void 
   );
 }
 
-export default function AdvertisementSystem() {
+export default function PartnerSystem() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [ads, setAds] = useState<Advertisement[]>(fallbackAdvertisements);
-  const visibleAds = ads.length > 0 ? ads : fallbackAdvertisements;
-  const leftSponsors = useMemo(() => visibleAds.slice(0, 5), [visibleAds]);
-  const rightSponsors = useMemo(() => visibleAds.slice(5, 8), [visibleAds]);
+  const [partners, setPartners] = useState<PartnerItem[]>(fallbackPartners);
+  const visiblePartners = partners.length > 0 ? partners : fallbackPartners;
+  const leftPartners = useMemo(() => visiblePartners.slice(0, 5), [visiblePartners]);
+  const rightPartners = useMemo(() => visiblePartners.slice(5, 8), [visiblePartners]);
 
   useEffect(() => {
     let mounted = true;
 
-    async function loadAdvertisements() {
+    async function loadPartners() {
       try {
-        const response = await fetch('/api/advertisements', { cache: 'no-store' });
+        const response = await fetch('/api/partners', { cache: 'no-store' });
         if (!response.ok) return;
 
         const payload = await response.json();
-        if (mounted && Array.isArray(payload.ads)) {
-          setAds(payload.ads);
+        if (mounted && Array.isArray(payload.items)) {
+          setPartners(payload.items);
         }
       } catch {
-        // Keep fallback ads available if the CMS cannot be reached.
+        // Keep fallback partners available if the CMS cannot be reached.
       }
     }
 
-    loadAdvertisements();
+    loadPartners();
 
     return () => {
       mounted = false;
@@ -310,12 +310,12 @@ export default function AdvertisementSystem() {
   }, []);
 
   return (
-    <div className="ad-system-root">
-      <AdSidebar side="left" items={leftSponsors} />
-      <AdSidebar side="right" items={rightSponsors} />
-      <MobileAdCarousel items={visibleAds.slice(0, 6)} />
-      <StickyAdvertiseCTA onClick={() => setModalOpen(true)} />
-      <AdvertiseModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    <div className="partner-system-root">
+      <FeatureSidebar side="left" items={leftPartners} />
+      <FeatureSidebar side="right" items={rightPartners} />
+      <MobileFeatureCarousel items={visiblePartners.slice(0, 6)} />
+      <StickyPartnerCTA onClick={() => setModalOpen(true)} />
+      <PartnerModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

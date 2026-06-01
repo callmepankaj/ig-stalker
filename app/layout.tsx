@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
-import AdvertisementSystem from "./components/AdvertisementSystem";
+import PartnerSystem from "./components/PartnerSystem";
 import { CSPostHogProvider } from "./providers";
 import { Analytics } from '@vercel/analytics/next';
 
@@ -59,7 +59,7 @@ export default function RootLayout({
       >
         <CSPostHogProvider>
           <Navbar />
-          <AdvertisementSystem />
+          <PartnerSystem />
           {children}
           <Analytics />
           <Footer />
