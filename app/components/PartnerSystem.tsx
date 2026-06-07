@@ -219,7 +219,7 @@ function PartnerModal({ open, onClose }: { open: boolean; onClose: () => void })
                 Partner with IG Stalker
               </h2>
               <p id="partner-modal-subtitle" className="mt-4 text-base leading-7 text-zinc-300">
-                Reach 30K+ entrepreneurs and founders every month
+                Reach 30K+ users every month
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">

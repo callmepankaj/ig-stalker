@@ -17,90 +17,52 @@ const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.l
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-type InstagramMediaNode = {
-  id: string;
-  display_url: string;
-  edge_media_to_caption?: {
-    edges?: { node?: { text?: string } }[];
-  };
-  edge_liked_by?: { count?: number };
-  edge_media_to_comment?: { count?: number };
-  is_video: boolean;
-  video_url?: string;
-  edge_sidecar_to_children?: {
-    edges?: { node: InstagramMediaNode }[];
-  };
-};
+const mapFeedPost = (item: any): InstagramPost => {
+  const isVideo = item.media_type === 2;
+  
+  // Get image URL
+  let imageUrl = '';
+  if (item.image_versions2?.candidates?.length > 0) {
+    imageUrl = item.image_versions2.candidates[0].url;
+  }
+  
+  // Get video URL
+  let videoUrl = undefined;
+  if (isVideo && item.video_versions?.length > 0) {
+    videoUrl = item.video_versions[0].url;
+  }
 
-type InstagramMediaEdge = {
-  node: InstagramMediaNode;
-};
+  // Get children (carousel media)
+  const children = item.carousel_media?.map((child: any) => {
+    const childIsVideo = child.media_type === 2;
+    let childImageUrl = '';
+    if (child.image_versions2?.candidates?.length > 0) {
+      childImageUrl = child.image_versions2.candidates[0].url;
+    }
+    let childVideoUrl = undefined;
+    if (childIsVideo && child.video_versions?.length > 0) {
+      childVideoUrl = child.video_versions[0].url;
+    }
 
-type InstagramTimeline = {
-  count?: number;
-  edges?: InstagramMediaEdge[];
-  page_info?: {
-    has_next_page?: boolean;
-    end_cursor?: string | null;
-  };
-};
-
-type InstagramUser = {
-  username: string;
-  full_name: string;
-  biography: string;
-  profile_pic_url?: string;
-  profile_pic_url_hd?: string;
-  edge_followed_by?: { count?: number };
-  edge_follow?: { count?: number };
-  edge_owner_to_timeline_media?: InstagramTimeline;
-  id: string;
-  highlight_reel_tray?: { edges?: InstagramHighlightEdge[] };
-  edge_highlight_reels?: { edges?: InstagramHighlightEdge[] };
-};
-
-type InstagramHighlightEdge = {
-  node: {
-    id: string;
-    title: string;
-    cover_media?: {
-      thumbnail_src?: string;
+    return {
+      id: child.id || child.pk || String(Math.random()),
+      imageUrl: childImageUrl,
+      isVideo: childIsVideo,
+      videoUrl: childVideoUrl,
     };
-    cover_media_cropped_thumbnail?: {
-      url?: string;
-    };
+  }) || [];
+
+  return {
+    id: item.id || item.pk || String(Math.random()),
+    imageUrl,
+    caption: item.caption?.text || '',
+    likes: item.like_count || 0,
+    comments: item.comment_count || 0,
+    isVideo,
+    videoUrl,
+    children,
   };
 };
-
-type WebProfileResponse = {
-  data?: {
-    user?: InstagramUser;
-  };
-};
-
-type GraphqlTimelineResponse = {
-  data?: {
-    user?: {
-      edge_owner_to_timeline_media?: InstagramTimeline;
-    };
-  };
-};
-
-const mapPost = (edge: InstagramMediaEdge): InstagramPost => ({
-  id: edge.node.id,
-  imageUrl: edge.node.display_url,
-  caption: edge.node.edge_media_to_caption?.edges?.[0]?.node?.text || '',
-  likes: edge.node.edge_liked_by?.count || 0,
-  comments: edge.node.edge_media_to_comment?.count || 0,
-  isVideo: edge.node.is_video,
-  videoUrl: edge.node.video_url,
-  children: edge.node.edge_sidecar_to_children?.edges?.map(child => ({
-    id: child.node.id,
-    imageUrl: child.node.display_url,
-    isVideo: child.node.is_video,
-    videoUrl: child.node.video_url,
-  })) || [],
-});
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -131,7 +93,7 @@ export async function GET(request: Request) {
       'X-Requested-With': 'XMLHttpRequest',
       'Accept': '*/*',
       'Accept-Language': 'en-US,en;q=0.9',
-      'Referer': `https://www.instagram.com/${username || 'instagram'}/`,
+      'Referer': 'https://www.instagram.com/',
       'Sec-Fetch-Dest': 'empty',
       'Sec-Fetch-Mode': 'cors',
       'Sec-Fetch-Site': 'same-origin',
@@ -139,59 +101,27 @@ export async function GET(request: Request) {
 
     // Pagination Request
     if (cursor && userId) {
-      const queryHashes = [
-        '58b6785bea111c67129decbe6a448951', // Common
-        '69cba40317214236af40e7efa697781d', // Common
-        'e769aa130647d2354c40ea6a439bfc08', // Common
-        '42323d64886122307be10013ad2dcc44', // Common
-        '2c5d4d8b70cad329c4a6ebe3abb6eedd', // New candidate
-        '003056d32c2554def87d2635815d9952', // New candidate
-      ];
+      const url = `https://www.instagram.com/api/v1/feed/user/${userId}/?max_id=${cursor}`;
+      const response = await fetch(url, { headers });
 
-      let lastError: unknown;
-      for (const hash of queryHashes) {
-        try {
-          // Add small delay between retries
-          if (lastError) await delay(500);
-
-          const variables = JSON.stringify({
-            id: userId,
-            first: 50, // Increase batch size
-            after: cursor,
-          });
-          const url = `https://www.instagram.com/graphql/query/?query_hash=${hash}&variables=${encodeURIComponent(variables)}`;
-          
-          const response = await fetch(url, { headers });
-          
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-
-          const data = await response.json() as GraphqlTimelineResponse;
-          const edge = data?.data?.user?.edge_owner_to_timeline_media;
-
-          if (edge) {
-            const posts = edge.edges?.map(mapPost) || [];
-
-            return NextResponse.json({
-              posts,
-              page_info: {
-                has_next_page: edge.page_info?.has_next_page || false,
-                end_cursor: edge.page_info?.end_cursor || null,
-              }
-            });
-          }
-        } catch (err) {
-          lastError = err;
-          // Continue to next hash
-        }
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
       }
-      
-      return NextResponse.json({ error: 'Failed to load more posts', details: String(lastError) }, { status: 500 });
+
+      const data = await response.json();
+      const posts = data.items?.map(mapFeedPost) || [];
+
+      return NextResponse.json({
+        posts,
+        page_info: {
+          has_next_page: data.more_available || false,
+          end_cursor: data.next_max_id || null,
+        }
+      });
     }
 
-    // Initial Request (web_profile_info)
-    const url = `https://www.instagram.com/api/v1/users/web_profile_info/?username=${username}`;
+    // Initial Request (feed by username)
+    const url = `https://www.instagram.com/api/v1/feed/user/${username}/username/`;
 
     const response = await fetch(url, {
       headers,
@@ -205,8 +135,8 @@ export async function GET(request: Request) {
       throw new Error(`Instagram returned ${response.status}`);
     }
 
-    const data = await response.json() as WebProfileResponse;
-    const user = data?.data?.user;
+    const data = await response.json();
+    const user = data.user;
 
     if (!user) {
       return NextResponse.json({ error: 'User not found or private' }, { status: 404 });
@@ -216,23 +146,19 @@ export async function GET(request: Request) {
     const profileData = {
       user: {
         username: user.username,
-        fullName: user.full_name,
-        biography: user.biography,
-        profilePicUrl: user.profile_pic_url_hd || user.profile_pic_url,
-        followers: user.edge_followed_by?.count?.toLocaleString() || '0',
-        following: user.edge_follow?.count?.toLocaleString() || '0',
-        posts: user.edge_owner_to_timeline_media?.count?.toLocaleString() || '0',
-        id: user.id,
+        fullName: user.full_name || '',
+        biography: user.biography || '',
+        profilePicUrl: user.profile_pic_url,
+        followers: user.follower_count?.toLocaleString() || '0',
+        following: user.following_count?.toLocaleString() || '0',
+        posts: user.media_count?.toLocaleString() || '0',
+        id: String(user.pk),
       },
-      posts: user.edge_owner_to_timeline_media?.edges?.map(mapPost) || [],
-      highlights: (user.highlight_reel_tray?.edges || user.edge_highlight_reels?.edges)?.map((edge) => ({
-        id: edge.node.id,
-        title: edge.node.title,
-        coverUrl: edge.node.cover_media?.thumbnail_src || edge.node.cover_media_cropped_thumbnail?.url,
-      })) || [],
+      posts: data.items?.map(mapFeedPost) || [],
+      highlights: [],
       page_info: {
-        has_next_page: user.edge_owner_to_timeline_media?.page_info?.has_next_page || false,
-        end_cursor: user.edge_owner_to_timeline_media?.page_info?.end_cursor || null,
+        has_next_page: data.more_available || false,
+        end_cursor: data.next_max_id || null,
       }
     };
 

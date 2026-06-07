@@ -155,13 +155,10 @@ export default function Home() {
       <main className="container mx-auto px-4 pt-32 pb-20 max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Anonymous Instagram Viewer
+            Ig Downloader
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-4">
-            View Instagram profiles, posts, stories, and reels anonymously without logging in. Browse public content, download media, and explore Instagram without leaving a digital footprint.
-          </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500 max-w-xl mx-auto">
-            Free, secure, and completely anonymous. No account required. No tracking. No registration.
+            Download Instagram profiles, posts, stories, and reels without watermark. 
           </p>
         </div>
 
@@ -357,7 +354,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold mb-3">100% Anonymous</h3>
                   <p className="text-zinc-600 dark:text-zinc-400">
-                    View profiles and stories without anyone knowing. Your identity is completely hidden.
+                    Download profiles and stories without anyone knowing. Your identity is completely hidden.
                   </p>
                 </div>
                 <div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow">
@@ -366,7 +363,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold mb-3">No Login Required</h3>
                   <p className="text-zinc-600 dark:text-zinc-400">
-                    You don't need an Instagram account to view public profiles. Just enter the username.
+                    You don't need an Ig account to view public profiles. Just enter the username.
                   </p>
                 </div>
                 <div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow">
@@ -413,7 +410,7 @@ export default function Home() {
 
             {/* Use Cases Section */}
             <section className="max-w-5xl mx-auto py-12">
-              <h2 className="text-3xl font-bold text-center mb-12">Who is IG Stalker For?</h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Who is IG downloader For?</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex gap-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-100 dark:border-zinc-800">
                   <div className="text-3xl">👨‍👩‍👧</div>
